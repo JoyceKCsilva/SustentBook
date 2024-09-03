@@ -99,33 +99,35 @@ if (isset($_GET['id'])) {
                 </li>
             <?php endif; ?>
         </aside>
-        <h2>Detalhes do livro</h2>
-            <?php if ($livro): ?>
-            <img src="../<?= htmlspecialchars($livro['LVR_FOTO']); ?>" alt="Imagem do Livro">
-            <p><strong>TÍTULO:</strong> <?= htmlspecialchars($livro['LVR_TITULO']) ?></p>
-            <p><strong>AUTOR:</strong> <?= htmlspecialchars($livro['LVR_AUTOR']) ?></p>
-            <p><strong>SINOPSE:</strong> <?= nl2br(htmlspecialchars($livro['LVR_SINOPSE'])) ?></p>
-            <p><strong>DESCRIÇÃO:</strong> <?= nl2br(htmlspecialchars($livro['LVR_DESCRICAO'])) ?></p>
-            <p><strong>PREÇO:</strong> R$ <?= htmlspecialchars(number_format($livro['LVR_PRECO'], 2, ',', '.')) ?></p>
-            <?php if($_SESSION['USR_ID'] == $livro['LVR_ID_USUARIO']): ?>
-                <a href="updatelivro.php?id=<?= $livro['LVR_ID'] ?>">EDITAR</a>
-                <a href="deletelivro.php?id=<?= $livro['LVR_ID'] ?>">EXCLUIR</a>
+        <div class = 'nogrid'>
+            <h2>Detalhes do livro</h2>
+                <?php if ($livro): ?>
+                <img src="<?= htmlspecialchars($livro['LVR_FOTO']); ?>" alt="Imagem do Livro">
+                <p><strong>TÍTULO:</strong> <?= htmlspecialchars($livro['LVR_TITULO']) ?></p>
+                <p><strong>AUTOR:</strong> <?= htmlspecialchars($livro['LVR_AUTOR']) ?></p>
+                <p><strong>SINOPSE:</strong> <?= nl2br(htmlspecialchars($livro['LVR_SINOPSE'])) ?></p>
+                <p><strong>DESCRIÇÃO:</strong> <?= nl2br(htmlspecialchars($livro['LVR_DESCRICAO'])) ?></p>
+                <p><strong>PREÇO:</strong> R$ <?= htmlspecialchars(number_format($livro['LVR_PRECO'], 2, ',', '.')) ?></p>
+                <?php if($_SESSION['USR_ID'] == $livro['LVR_ID_USUARIO']): ?>
+                    <a href="updatelivro.php?id=<?= $livro['LVR_ID'] ?>">EDITAR</a>
+                    <a href="deletelivro.php?id=<?= $livro['LVR_ID'] ?>">EXCLUIR</a>
+                <?php else: ?>
+                    <p><strong>CONTATO:</strong> 
+                    <?php
+                        $telefone = htmlspecialchars($livro['USR_TELEFONE']);
+                        $titulo = htmlspecialchars($livro['LVR_TITULO']);
+                        $mensagem = urlencode("Olá, estou interessado no livro '$titulo' que você postou no SustenBOOK.");
+                    ?>
+                    <a href="https://wa.me/<?= $telefone ?>?text=<?= $mensagem ?>" target="_blank">
+                        Enviar mensagem pelo WhatsApp
+                    </a>
+                </p>
+                <?php endif; ?>
+                
             <?php else: ?>
-                <p><strong>CONTATO:</strong> 
-                <?php
-                    $telefone = htmlspecialchars($livro['USR_TELEFONE']);
-                    $titulo = htmlspecialchars($livro['LVR_TITULO']);
-                    $mensagem = urlencode("Olá, estou interessado no livro '$titulo' que você postou no SustenBOOK.");
-                ?>
-                <a href="https://wa.me/<?= $telefone ?>?text=<?= $mensagem ?>" target="_blank">
-                    Enviar mensagem pelo WhatsApp
-                </a>
-            </p>
+                <p>Livro não encontrado.</p>
             <?php endif; ?>
-            
-        <?php else: ?>
-            <p>Livro não encontrado.</p>
-        <?php endif; ?>
+        </div>
    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

@@ -49,6 +49,7 @@ if (isset($_SESSION['USR_ID'])) {
                 $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
                 $novoNomeDoArquivo = uniqid() . ".$extensao";
                 $path = $pasta . $novoNomeDoArquivo;
+                
 
                 if (move_uploaded_file($arquivo['tmp_name'], $path)) {
                     $stmt = $pdo->prepare("UPDATE sebo_usuarios SET USR_FOTO = ? WHERE USR_ID = ?");
