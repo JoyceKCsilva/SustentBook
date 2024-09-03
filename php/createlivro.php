@@ -2,7 +2,7 @@
 require_once 'db.php';
 require_once 'authenticate.php';
 session_start();
-$pasta = 'uploads/';
+$pasta ='uploads/';
 
 if (isset($_SESSION['USR_ID'])) {
     $USR_ID = $_SESSION['USR_ID'];
@@ -34,7 +34,13 @@ if (isset($_SESSION['USR_ID'])) {
 
             $path = $pasta . $novoNomeDoArquivo;
 
-            if (move_uploaded_file($arquivo['tmp_name'], $path)) {
+            if (!file_exists($pasta)) {
+                mkdir($pasta, 0777, true);
+            }
+            
+            $deucerto = move_uploaded_file($arquivo['tmp_name'], $path);
+
+            if ($deucerto) {
                 $stmt = $pdo->prepare("INSERT INTO sebo_livros (LVR_TITULO, LVR_AUTOR, LVR_SINOPSE, LVR_DESCRICAO, LVR_PRECO, LVR_FOTO, LVR_ID_USUARIO) VALUES (?, ?, ?, ?, ?, ?, ?)");
                 $stmt->execute([
                     $_POST['LVR_TITULO'],

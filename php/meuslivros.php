@@ -87,7 +87,7 @@ require_once "authenticate.php";
         <div class="book-card">
             <a href="detalheslivro.php?id=<?= htmlspecialchars($livro['LVR_ID']); ?>" class="text-decoration-none">
                 <div class="card h-100">
-                    <img src="../<?= htmlspecialchars($livro['LVR_FOTO']); ?>" class="card-img-top" alt="<?= htmlspecialchars($livro['LVR_TITULO']); ?>">
+                    <img src="<?= htmlspecialchars($livro['LVR_FOTO']); ?>" class="card-img-top" alt="<?= htmlspecialchars($livro['LVR_TITULO']); ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= htmlspecialchars($livro['LVR_TITULO']); ?></h5>
                         <p class="card-text"><?= htmlspecialchars($livro['LVR_DESCRICAO']); ?></p>
