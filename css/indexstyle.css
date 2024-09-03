@@ -1,0 +1,88 @@
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+body {
+    background-color: #2E8B3E;
+    display: grid;
+    grid-template-columns: 20vh auto; /
+}
+.navegacao {
+    background-color: #f1f1f1;
+    grid-column: 1; /* Coloca a navegação na primeira coluna */
+    padding: 10px; /* Adiciona espaço interno */
+    align-items: center;
+    display: block;
+}
+.explorar {
+    grid-column: 2; 
+    padding: 20px; 
+}
+.navitem i {
+    font-size: 1.5rem; /* Aumente ou diminua conforme necessário */
+}
+
+/* Estilo para aumentar o tamanho do texto no span */
+.navitem span {
+    font-size: 1.2rem; /* Aumente ou diminua conforme necessário */
+}
+
+/* Opcional: para espaçamento entre os itens de navegação */
+.navitem {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaçamento entre ícone e texto */
+    padding: 5px 0; /* Espaçamento vertical entre itens */
+}
+
+/* Estilo adicional para o container de navegação */
+.navegacao ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove as bolinhas da lista */
+}
+
+.sidebar-footer a {
+    font-size: 1.2rem; /* Aumenta o tamanho do texto no footer */
+    padding-top: 20px; /* Adiciona um espaço no topo do link "Sair" */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navegacao img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 30px;
+}
+.itensdonav{
+    position: fixed;
+}
+
+
+/* Estilo para ocultar os spans */
+.navitem span {
+    font-size: 1.2rem;
+    transition: opacity 0.3s ease;
+}
+
+/* Estilo para expandir a navegação */
+.navegacao-expandida {
+    width: 250px; /* Ajuste conforme necessário */
+    transition: width 0.3s ease;
+}
+
+/* Estilo para ocultar spans */
+.navegacao-reduzida .navitem span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: none; /* Para ocultar completamente */
+}
+
+.itensdonav {
+    transition: width 0.3s ease;
+}
+
