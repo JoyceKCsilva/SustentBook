@@ -104,19 +104,20 @@ if (empty($user['USR_FOTO'])) {
             <?php endif; ?>
         </aside>
         <div class="main p-3">
-            
-            <div class="perfil">
-                <h1><?php echo htmlspecialchars($user['USR_NOME']); ?></h1>
-                <img src="<?php echo htmlspecialchars($imagem) ?>">
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['USR_EMAIL']); ?></p>
-                <p><strong>Telefone:</strong> <?php echo htmlspecialchars($user['USR_TELEFONE']); ?></p>
-                <!-- Botão para redirecionar para a página de edição de perfil -->
-                <a href="editarperfil.php?id=<?= htmlspecialchars($user['USR_ID']); ?>"">Editar Perfil</a>
+            <div class="containergeral">
+                <div class="perfil">
+                    <h1><?php echo htmlspecialchars($user['USR_NOME']); ?></h1>
+                    <img src="<?php echo htmlspecialchars($imagem) ?>">
+                    <p><strong>Email:</strong> <?php echo htmlspecialchars($user['USR_EMAIL']); ?></p>
+                    <p><strong>Telefone:</strong> <?php echo htmlspecialchars($user['USR_TELEFONE']); ?></p>
+                  
+                    <a href="editarperfil.php?id=<?= htmlspecialchars($user['USR_ID']); ?>"">Editar Perfil</a>
+                </div>
             </div>
         </div>
         
     <?php
-    // Mostrar mensagens de erro ou sucesso, se existirem
+   
     if (isset($_SESSION['success_message'])) {
         echo '<p style="color: green;">' . htmlspecialchars($_SESSION['success_message']) . '</p>';
         unset($_SESSION['success_message']);

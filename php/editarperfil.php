@@ -152,20 +152,34 @@ if (isset($_SESSION['USR_ID'])) {
                 </li>
             <?php endif; ?>
         </aside>
+
         <div class="main p-3">
-            <h1>Editar Informações</h1>
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo htmlspecialchars($user['USR_ID']); ?>">
-                <label for="USR_EMAIL">Novo Email:</label>
-                <input type="email" id="USR_EMAIL" name="USR_EMAIL" value="<?php echo htmlspecialchars($user['USR_EMAIL']); ?>" required>
-                <label for="USR_TELEFONE">Novo Telefone:</label>
-                <input type="text" id="USR_TELEFONE" name="USR_TELEFONE" value="<?php echo htmlspecialchars($user['USR_TELEFONE']); ?>">
-                <label for="USR_SENHA">Nova Senha:</label>
-                <input type="password" id="USR_SENHA" name="USR_SENHA">
-                <label for="USR_FOTO">Nova Foto de Perfil:</label>
-                <input type="file" id="USR_FOTO" name="USR_FOTO" accept="image/*">
-                <input type="submit" value="Atualizar">
-            </form>
+            <div class="containergeral">
+                <h1>Editar Informações</h1>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="USR_NOME" class="form-control" value="<?php echo htmlspecialchars($user['USR_NOME']); ?>" required>
+                        <label for="USR_NOME">Novo nome:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="USR_EMAIL" name="USR_EMAIL" value="<?php echo htmlspecialchars($user['USR_EMAIL']); ?>" required>
+                        <label for="USR_EMAIL">Novo Email:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="USR_TELEFONE" name="USR_TELEFONE" value="<?php echo htmlspecialchars($user['USR_TELEFONE']); ?>">
+                        <label for="USR_TELEFONE">Novo Telefone:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="USR_SENHA" name="USR_SENHA">
+                        <label for="USR_SENHA">Nova Senha:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="file" class="form-control" id="USR_FOTO" name="USR_FOTO" accept="image/*">
+                        <label for="USR_FOTO">Nova Foto de Perfil:</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Atualizar</button>
+                </form>
+            </div>
         </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

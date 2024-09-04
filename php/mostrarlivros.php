@@ -10,7 +10,7 @@ if (isset($_SESSION['USR_ID'])) {
     $meusLivros = $stmtMeusLivros->fetchAll();
 
     $stmtExplorar = $pdo->prepare("
-    SELECT livros.*, usuarios.USR_TELEFONE
+    SELECT livros.*, usuarios.*
     FROM sebo_livros AS livros
     JOIN sebo_usuarios AS usuarios ON livros.LVR_ID_USUARIO = usuarios.USR_ID
     WHERE livros.LVR_ID_USUARIO != ?

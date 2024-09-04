@@ -93,6 +93,8 @@ if (isset($_SESSION['USR_ID'])) {
                     <div class="card-body">
                         <h5 class="card-title"><?= htmlspecialchars($livro['LVR_TITULO']); ?></h5>
                         <p class="card-text"><?= htmlspecialchars($livro['LVR_DESCRICAO']); ?></p>
+                        <p><img src="php/<?php echo htmlspecialchars($livro['USR_FOTO']); ?>" width = '30' heigth = '30'> <?php echo htmlspecialchars($livro['USR_EMAIL']); ?></p>
+                        <p>Preço: R$ <?php echo number_format($livro['LVR_PRECO'], 2, ',', '.'); ?></p>
                         <a href="https://wa.me/<?= htmlspecialchars($livro['USR_TELEFONE']); ?>?text=<?= urlencode("Olá, estou interessado no livro '{$livro['LVR_TITULO']}' que você postou no SustenBOOK."); ?>" target="_blank" class="btn btn-success">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

@@ -47,14 +47,17 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     display: flex;
-    flex-direction: column; /* Garantir que os elementos internos sejam dispostos verticalmente */
-    justify-content: space-between; /* Distribui o espaço entre os elementos */
+    flex-direction: column; 
+    justify-content: space-between; 
 }
 
 .book-card img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+}
+.book-card .card-body img{
+    border-radius: 20px;
 }
 
 .book-card .card-body {
@@ -232,4 +235,114 @@ a.sidebar-link:hover {
 
 .data-bs-target{
     position: fixed;
+}
+
+.containergeral{
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 600px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    grid-column: 2 / 4;
+}
+.desejo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.desejo h3 {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc; /* Adiciona uma linha abaixo de cada item */
+    margin-bottom: 15px; /* Espaço entre os itens */
+}
+
+.desejo ul {
+    margin-bottom: 20px; /* Espaço entre a lista de livros e o próximo desejo */
+}
+
+.desejo ul li {
+    margin-bottom: 10px; /* Espaço entre os itens dentro da lista de livros */
+}
+
+.desejo a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0066cc; /* Cor do link de remover */
+    text-decoration: none;
+}
+
+.desejo a:hover {
+    text-decoration: underline;
+    
+}
+.desejo img{
+    border-radius: 30px;
+}
+
+.perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.perfil img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.containerbusca{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 200vh;
+}
+.search-container {
+    padding: 10px 0; /* Mantém o padding vertical */
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    text-align: center; /* Centraliza o conteúdo dentro da div */
+}
+
+.search-container form {
+    display: inline-flex; /* Faz com que o formulário ocupe apenas o espaço necessário */
+    max-width: 600px; /* Define a largura máxima do formulário */
+    width: 100%; /* Faz o formulário ocupar 100% da largura disponível até 600px */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+}
+
+.search-container input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-container button.buscar {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #2E8B3E;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-container button.buscar:hover {
+    background-color: #276a31;
+
+}
+.mostraroslivros{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Limita a no máximo 4 colunas */
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #2E8B3E;
 }

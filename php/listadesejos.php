@@ -106,47 +106,57 @@ foreach ($livros_venda as $titulo => $livros) {
             <?php endif; ?>
         </aside>
 
-        <div>
-            <form action="add-desejo.php" method="POST">
-                <input type="text" id="DSJ_TITULO" name="DSJ_TITULO" placeholder="Título do livro" required>
-                <input type="text" id="DSJ_AUTOR" name="DSJ_AUTOR" placeholder="Autor do livro" required>
-                <button type="submit">Adicionar à Lista de Desejos</button>
-            </form>
+        <div class="main p-3">
+            <div class="containergeral">
+                <h1>Adicionar Livro a Lista</h1>
+                <div>
+                    <form action="add-desejo.php" method="POST">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="DSJ_TITULO" name="DSJ_TITULO" placeholder="text" required>
+                            <label for="DSJ_TITULO">Título do livro</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="DSJ_AUTOR" name="DSJ_AUTOR" placeholder="text" required>
+                            <label for="DSJ_AUTOR">Autor do livro</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Adicionar à Lista de Desejos</button>
+                    </form>
+                </div>
+            </div>
+            <div class="containergeral">
+                <h1>Minha Lista de Desejos</h1>
+                <?php if (empty($desejos)): ?>
+                    <p>Você ainda não adicionou nenhum livro à sua lista de desejos.</p>
+                <?php else: ?>
+                    <div class="desejo">
+                        <?php foreach ($desejos as $desejo): ?>
+                        
+                            <h3><?= htmlspecialchars($desejo['DSJ_TITULO']); ?> - <?= htmlspecialchars($desejo['DSJ_AUTOR']); ?></h3>
+                            <?php if (!empty($livros_venda[$desejo['DSJ_TITULO']])): ?>
+                                <ul>
+                                    <?php foreach ($livros_venda[$desejo['DSJ_TITULO']] as $livro): ?>
+                                        <li>
+                                            <?php $seller_id = $livro['LVR_ID_USUARIO']; ?>
+                                            <?php $seller_data = $user_data[$desejo['DSJ_TITULO']][$seller_id]; ?>
+                                            <img src="<?= htmlspecialchars($seller_data['USR_FOTO']); ?>" alt="Foto do vendedor" width="30" height="30" >
+                                            <a href="detalheslivro.php?id=<?= $livro['LVR_ID']; ?>"><?= htmlspecialchars($seller_data['USR_EMAIL']); ?> está vendendo este livro por R$ <?= htmlspecialchars($livro['LVR_PRECO']); ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php else: ?>
+                                <p>Nenhum usuário está vendendo este livro no momento.</p>
+                            <?php endif; ?>
+                            
+                            <a href="removerdesejo.php?titulo=<?= urlencode($desejo['DSJ_TITULO']); ?>&autor=<?= urlencode($desejo['DSJ_AUTOR']); ?>" onclick="return confirm('Tem certeza que deseja remover este livro da sua lista de desejos?');">Remover</a>
+                        
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
         </div>
-
-        <div>
-        <h1>Minha Lista de Desejos</h1>
-<?php if (empty($desejos)): ?>
-    <p>Você ainda não adicionou nenhum livro à sua lista de desejos.</p>
-<?php else: ?>
-    <?php foreach ($desejos as $desejo): ?>
-        <div class="desejo">
-            <h3><?= htmlspecialchars($desejo['DSJ_TITULO']); ?> - <?= htmlspecialchars($desejo['DSJ_AUTOR']); ?></h3>
-            <?php if (!empty($livros_venda[$desejo['DSJ_TITULO']])): ?>
-                <ul>
-                    <?php foreach ($livros_venda[$desejo['DSJ_TITULO']] as $livro): ?>
-                        <li>
-                            <?php $seller_id = $livro['LVR_ID_USUARIO']; ?>
-                            <?php $seller_data = $user_data[$desejo['DSJ_TITULO']][$seller_id]; ?>
-                            <img src="<?= htmlspecialchars($seller_data['USR_FOTO']); ?>" alt="Foto do vendedor" width="30" height="30">
-                            <a href="detalheslivro.php?id=<?= $livro['LVR_ID']; ?>"><?= htmlspecialchars($seller_data['USR_EMAIL']); ?> está vendendo este livro por R$ <?= htmlspecialchars($livro['LVR_PRECO']); ?></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php else: ?>
-                <p>Nenhum usuário está vendendo este livro no momento.</p>
-            <?php endif; ?>
-            
-            <!-- Link para remover o livro da lista de desejos -->
-            <a href="removerdesejo.php?titulo=<?= urlencode($desejo['DSJ_TITULO']); ?>&autor=<?= urlencode($desejo['DSJ_AUTOR']); ?>" onclick="return confirm('Tem certeza que deseja remover este livro da sua lista de desejos?');">Remover</a>
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>
-
 
     </div>
-
-
+   
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

@@ -82,36 +82,29 @@ require_once "authenticate.php";
             </aside>
 
         <div class="main p-3">
-            <a href="createlivro.php"><i class="bi bi-plus-square"></i><span>Adicionar livro</span></a>
-    <?php foreach ($meusLivros as $livro): ?>
-        <div class="book-card">
-            <a href="detalheslivro.php?id=<?= htmlspecialchars($livro['LVR_ID']); ?>" class="text-decoration-none">
-                <div class="card h-100">
-                    <img src="<?= htmlspecialchars($livro['LVR_FOTO']); ?>" class="card-img-top" alt="<?= htmlspecialchars($livro['LVR_TITULO']); ?>">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= htmlspecialchars($livro['LVR_TITULO']); ?></h5>
-                        <p class="card-text"><?= htmlspecialchars($livro['LVR_DESCRICAO']); ?></p>
-                        <a href="https://wa.me/<?= htmlspecialchars($livro['USR_TELEFONE']); ?>?text=<?= urlencode("Olá, estou interessado no livro '{$livro['LVR_TITULO']}' que você postou no SustenBOOK."); ?>" target="_blank" class="btn btn-success">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                width="24"
-                                height="24"
-                                >
-                                <path fill="none" d="M0 0h24v24H0z"></path>
-                                <path
-                                fill="currentColor"
-                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                                ></path>
-                            </svg>
-                            
-                            <span>Enviar mensagem</span>
-                        </a>
-                    </div>
+            <a href="createlivro.php">
+                <div class='book-card'>
+                    <i class="bi bi-plus-square"></i><span>Adicionar livro</span>
                 </div>
+                
             </a>
+            
+            <?php foreach ($meusLivros as $livro): ?>
+                <div class="book-card">
+                    <a href="detalheslivro.php?id=<?= htmlspecialchars($livro['LVR_ID']); ?>" class="text-decoration-none">
+                        <div class="card h-100">
+                            <img src="<?= htmlspecialchars($livro['LVR_FOTO']); ?>" class="card-img-top" alt="<?= htmlspecialchars($livro['LVR_TITULO']); ?>">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($livro['LVR_TITULO']); ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($livro['LVR_DESCRICAO']); ?></p>
+                                <p class="card-text"><?= htmlspecialchars($livro['LVR_PRECO']);?></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
+        
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
