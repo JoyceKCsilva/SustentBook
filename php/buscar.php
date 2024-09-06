@@ -4,6 +4,14 @@ session_start();
 
 $livros = [];
 
+
+if (!isset($_SESSION['USR_ID'])) {
+    
+    exit('Usuário não logado.');
+}
+
+$USR_ID = $_SESSION['USR_ID']; // ID do usuário logado
+
 if (isset($_GET['query']) && !empty($_GET['query'])) {
     $query = $_GET['query'];
     $query = "%$query%";
@@ -12,11 +20,13 @@ if (isset($_GET['query']) && !empty($_GET['query'])) {
         SELECT livros.*, usuarios.USR_EMAIL, usuarios.USR_FOTO 
         FROM sebo_livros AS livros
         LEFT JOIN sebo_usuarios AS usuarios ON livros.LVR_ID_USUARIO = usuarios.USR_ID
-        WHERE livros.LVR_TITULO LIKE :query 
-        OR livros.LVR_AUTOR LIKE :query
+        WHERE (livros.LVR_TITULO LIKE :query 
+        OR livros.LVR_AUTOR LIKE :query)
+        AND livros.LVR_ID_USUARIO != :USR_ID
     ";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':query', $query, PDO::PARAM_STR);
+    $stmt->bindParam(':USR_ID', $USR_ID, PDO::PARAM_INT); 
     
     $stmt->execute();
     
@@ -24,6 +34,8 @@ if (isset($_GET['query']) && !empty($_GET['query'])) {
 }
 
 ?>
+
+
 
 <html lang="en">
 <head>

@@ -301,10 +301,10 @@ a.sidebar-link:hover {
     width: 200vh;
 }
 .search-container {
-    padding: 10px 0; /* Mantém o padding vertical */
-    background-color: #f8f9fa;
+    padding: 10px 0; 
+    background-color: #f1f1f1;
     border-bottom: 1px solid #ccc;
-    text-align: center; /* Centraliza o conteúdo dentro da div */
+    text-align: center; 
 }
 
 .search-container form {
@@ -337,7 +337,7 @@ a.sidebar-link:hover {
 }
 .mostraroslivros{
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Limita a no máximo 4 colunas */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     padding: 20px;
     min-height: 100vh;
@@ -345,4 +345,9 @@ a.sidebar-link:hover {
     overflow: hidden;
     transition: all 0.35s ease-in-out;
     background-color: #2E8B3E;
+}
+
+.detalheslivro{
+    padding-left: 30px;
+    padding-right: 30px;
 }
