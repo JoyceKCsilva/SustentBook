@@ -8,12 +8,16 @@ SustentBook é uma aplicação PHP web construída durante a disciplina de Proje
 A aplicação consiste em um sebo online, onde o usuário pode postar livros para venda ou troca, o usuario também possui uma lista de desejos pra ver quando algum outro usuário postou o livro que ele tem interece.
 
 ## Layout web
-![Web 1](https://github.com/acenelio/assets/raw/main/sds1/web1.png)
+![Tela Principal](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/Tela%20principal.png)
 
-![Web 2](https://github.com/acenelio/assets/raw/main/sds1/web2.png)
+![Lista de desejos](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/lista%20de%20desejos.png)
+
+![Pagina de busca](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/pagina%20de%20busca.png)
+
+![Adicionar livro](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/Adicionar%20livro.png)
 
 ## Modelo conceitual
-![Modelo Conceitual](https://github.com/acenelio/assets/raw/main/sds1/modelo-conceitual.png)
+![Modelo Conceitual](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/ModeloConceitual.png)
 
 # Tecnologias utilizadas
 ## Back end
@@ -27,39 +31,22 @@ A aplicação consiste em um sebo online, onde o usuário pode postar livros par
 
 ## Pré-requisitos:
 - PHP
-- Node.js
+- Executar o script de banco.sql no Workbench
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/JoyceKCsilva/SustentBook
 
-# entrar na pasta do projeto back end
-cd backend
-
-# executar o projeto
-./mvnw spring-boot:run
-```
-
-## Front end web
-Pré-requisitos: npm / yarn
-
-```bash
-# clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
-
-# entrar na pasta do projeto front end web
-cd front-web
-
-# instalar dependências
-yarn install
+# entrar na pasta do projeto 
+cd SustentBook
 
 # executar o projeto
-yarn start
+php -S localhost:8000
 ```
 
 # Autora
 
-JOyce Kelle Cordeiro da Silva
+Joyce Kelle Cordeiro da Silva
 
-https://www.linkedin.com/in/wmazoni
+https://www.linkedin.com/in/joycekcsilva
 
