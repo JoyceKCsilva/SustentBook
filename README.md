@@ -57,9 +57,9 @@ yarn install
 yarn start
 ```
 
-# Autor
+# Autora
 
-Wellington Mazoni de Andrade
+JOyce Kelle Cordeiro da Silva
 
 https://www.linkedin.com/in/wmazoni
 

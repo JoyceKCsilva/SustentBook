@@ -103,6 +103,7 @@ if (empty($user['USR_FOTO'])) {
                 </li>
             <?php endif; ?>
         </aside>
+        
         <div class="main p-3">
             <div class="containergeral">
                 <div class="perfil">

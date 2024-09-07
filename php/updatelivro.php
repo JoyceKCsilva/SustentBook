@@ -75,35 +75,106 @@ if (isset($_SESSION['USR_ID'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<div class="container">
-            <img src="../../img/logo.svg">
-            <br>
-            <form method="POST" enctype = "multipart/form-data" >
-                <label for="LVR_TITULO">DIGITE  O TITULO DO LIVRO:</label>
-                <input type="text" id="LVR_TITULO" name="LVR_TITULO" value="<?= htmlspecialchars($livro['LVR_TITULO']) ?>" required>
-                <br>
-                <label for="LVR_AUTOR">QUAL O AUTOR DESTE LIVRO?</label>
-                <input type="text" id="LVR_AUTOR" name="LVR_AUTOR" value="<?= htmlspecialchars($livro['LVR_AUTOR']) ?>" required>
-                <br>
-                <label for="LVR_SINOPSE">AGORA ESCREVA SUA SINOPSE:</label>
-                <input type="text" id="LVR_SINOPSE" name="LVR_SINOPSE" value="<?= htmlspecialchars($livro['LVR_SINOPSE']) ?>" required>
-                <br>
-                <label for="LVR_DESCRICAO">DESCREVA O ESTADO DO LIVRO:</label>
-                <input type="text" id="LVR_DESCRICAO" name="LVR_DESCRICAO" value="<?= htmlspecialchars($livro['LVR_DESCRICAO']) ?>" required>
-                <br>
-                <label for="LVR_PRECO">QUANTO VOCÊ ACHA QUE VALE ESTE LIVRO?</label>
-                <input type="INT" id="LVR_PRECO" name="LVR_PRECO" value="<?= htmlspecialchars($livro['LVR_PRECO']) ?>" required>
-                <br>
-                <label for="LVR_FOTO">ANEXE UMA IMAGEM DO LIVRO:</label>
-                <input type="file" id="LVR_FOTO" name="LVR_FOTO" accept="image/*" required>
-                <br>
-                <div class="add">
-                    <button type="submit">POSTAR</button>
+    
+<?php if (isset($_SESSION['USR_EMAIL'])): ?>
+<div class="wrapper">
+        <aside id="sidebar">     
+            <div class="data-bs-target">
+                <button class="toggle-btn" type="menu">
+                    <img src="../img/logo.svg" alt="logo">
+                </button>
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-item">
+                            <a href="../index.php" class="sidebar-link">
+                                <i class="bi bi-house"></i>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="meuperfil.php" class="sidebar-link">
+                                <i class="lni lni-user"></i>
+                                <span>Perfil</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="buscar.php" class="sidebar-link">
+                                <i class="lni lni-search-alt"></i>
+                                <span>Procurar</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="meuslivros.php" class="sidebar-link">
+                                <i class="lni lni-book"></i>
+                            <span>Meus Livros</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="listadesejos.php" class="sidebar-link">
+                                <i class="lni lni-list"></i>
+                                <span>Lista de Desejos</span>
+                            </a>
+                        </li>
+
+                        <div class="sidebar-footer">
+                        <a href="logout.php" class="sidebar-link">
+                            <i class="lni lni-exit"></i>
+                            <span>Sair</span>
+                        </a>
+                    </u>
                 </div>
-            </form>
+                <?php endif; ?>
+            </div>
+        </aside> 
+
+        <div class="main p-3">
+            <div class="containergeral">
+                <h3>Alterar Livro</h3>
+                <form method="POST" enctype = "multipart/form-data" >
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="LVR_TITULO" name="LVR_TITULO" placeholder="text" value="<?= htmlspecialchars($livro['LVR_TITULO']) ?>" required>
+                        <label for="LVR_TITULO">DIGITE  O TITULO DO LIVRO:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="LVR_AUTOR" name="LVR_AUTOR" placeholder="text" value="<?= htmlspecialchars($livro['LVR_AUTOR']) ?>" required>
+                        <label for="LVR_AUTOR">QUAL O AUTOR DESTE LIVRO?</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control"  id="LVR_SINOPSE" name="LVR_SINOPSE" placeholder="text" value="<?= htmlspecialchars($livro['LVR_SINOPSE']) ?>" required>
+                        <label for="LVR_SINOPSE">AGORA ESCREVA SUA SINOPSE:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="LVR_DESCRICAO" name="LVR_DESCRICAO" placeholder="text" value="<?= htmlspecialchars($livro['LVR_DESCRICAO']) ?>" required>
+                        <label for="LVR_DESCRICAO">DESCREVA O ESTADO DO LIVRO:</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="INT" id="LVR_PRECO" class="form-control" name="LVR_PRECO" placeholder="text" value="<?= htmlspecialchars($livro['LVR_PRECO']) ?>" required>
+                        <label for="LVR_PRECO">QUANTO VOCÊ ACHA QUE VALE ESTE LIVRO?</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <!-- <label for="LVR_FOTO" >ANEXE UMA IMAGEM DO LIVRO:</label> -->
+                        
+                        <input type="file" class="form-control" id="LVR_FOTO" name="LVR_FOTO" accept="image/*" required>
+                    </div>
+                    <br>
+                    <div class="add">
+                        <button type="submit">POSTAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            let nome = document.getElementById('USR_NOME').value;
+            if (nome.trim() === '') {
+            event.preventDefault(); 
+            }
+        });
+    </script>
 </body>
 </html>
