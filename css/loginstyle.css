@@ -19,3 +19,6 @@ form{
     text-align: left;
     width: 400px;
 }
+a{
+    text-decoration: none;
+}

@@ -79,7 +79,6 @@ if (isset($_SESSION['USR_ID'])) {
 </head>
 <body>
     
-<?php if (isset($_SESSION['USR_EMAIL'])): ?>
 <div class="wrapper">
         <aside id="sidebar">     
             <div class="data-bs-target">
@@ -125,7 +124,7 @@ if (isset($_SESSION['USR_ID'])) {
                         </a>
                     </u>
                 </div>
-                <?php endif; ?>
+
             </div>
         </aside> 
 

@@ -30,7 +30,7 @@ body {
 
 .main {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Limita a no máximo 4 colunas */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 20px;
     padding: 20px;
     min-height: 100vh;
@@ -63,7 +63,7 @@ body {
 .book-card .card-body {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Alinha títulos e descrições centralmente */
+    align-items: center; 
 }
 
 .book-card .card-title {
@@ -79,7 +79,7 @@ body {
 }
 
 .book-card .btn {
-    margin-top: auto; /* Empurra o botão para o final do card */
+    margin-top: auto; 
 }
 
 #sidebar {
@@ -97,7 +97,7 @@ body {
     min-width: 260px;
 }
 
-/* Botão de redirecionamento para watsap */ 
+
 button {
     font-family: inherit;
     font-size: 12px;
@@ -257,22 +257,22 @@ a.sidebar-link:hover {
 }
 .desejo h3 {
     padding: 10px 0;
-    border-bottom: 1px solid #ccc; /* Adiciona uma linha abaixo de cada item */
-    margin-bottom: 15px; /* Espaço entre os itens */
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 15px; 
 }
 
 .desejo ul {
-    margin-bottom: 20px; /* Espaço entre a lista de livros e o próximo desejo */
+    margin-bottom: 20px; 
 }
 
 .desejo ul li {
-    margin-bottom: 10px; /* Espaço entre os itens dentro da lista de livros */
+    margin-bottom: 10px; 
 }
 
 .desejo a {
     display: inline-block;
     margin-top: 10px;
-    color: #0066cc; /* Cor do link de remover */
+    color: #0066cc;
     text-decoration: none;
 }
 
@@ -308,10 +308,10 @@ a.sidebar-link:hover {
 }
 
 .search-container form {
-    display: inline-flex; /* Faz com que o formulário ocupe apenas o espaço necessário */
-    max-width: 600px; /* Define a largura máxima do formulário */
-    width: 100%; /* Faz o formulário ocupar 100% da largura disponível até 600px */
-    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    display: inline-flex; 
+    max-width: 600px; 
+    width: 100%; 
+    margin: 0 auto; 
 }
 
 .search-container input[type="text"] {
@@ -347,7 +347,140 @@ a.sidebar-link:hover {
     background-color: #2E8B3E;
 }
 
-.detalheslivro{
-    padding-left: 30px;
-    padding-right: 30px;
+.detalheslivro {
+    padding: 30px;
+    padding-top: 0px;
+}
+
+.detalheslivro h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.detalheslivro img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.detalheslivro p {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+.detalheslivro p strong {
+    color: #2ecc71;
+}
+
+.detalheslivro a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.detalheslivro a:hover {
+    background-color: #2980b9;
+}
+
+.detalheslivro a:last-of-type {
+    background-color: #e74c3c;
+}
+
+.detalheslivro a:last-of-type:hover {
+    background-color: #c0392b;
+}
+
+.detalheslivro .whatsapp-link {
+    display: block;
+    text-decoration: none;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.detalheslivro .whatsapp-link:hover {
+    background-color: #1ebd5e;
+}
+
+
+.telaboasvindas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2E8B3E;
+    padding: 20px;
+}
+
+.boasvindas {
+    background-color: #f1f1f1;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+.cordlogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cordlogo img {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.cordlogo h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.boasvindas p {
+    text-align: justify;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.botoes {
+    margin-top: 30px;
+}
+
+.botoes a {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 0 10px;
+    text-decoration: none;
+    background-color: #2E8B3E;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botoes a:hover {
+    background-color: #277835;
 }

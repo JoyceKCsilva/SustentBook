@@ -8,6 +8,9 @@ SustentBook é uma aplicação PHP web construída durante a disciplina de Proje
 A aplicação consiste em um sebo online, onde o usuário pode postar livros para venda ou troca, o usuario também possui uma lista de desejos pra ver quando algum outro usuário postou o livro que ele tem interece.
 
 ## Layout web
+
+![Boas Vindas](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/boasvindas.png)
+
 ![Tela Principal](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/Tela%20principal.png)
 
 ![Lista de desejos](https://github.com/JoyceKCsilva/Imagens/blob/main/sustentBook/lista%20de%20desejos.png)

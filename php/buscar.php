@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'authenticate.php';
 session_start();
 
 $livros = [];
@@ -55,7 +56,7 @@ if (isset($_GET['query']) && !empty($_GET['query'])) {
                 <button class="toggle-btn" type="menu">
                     <img src="../img/logo.svg" alt="logo">
                 </button>
-                <?php if (isset($_SESSION['USR_EMAIL'])): ?>
+               
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
                             <a href="../index.php" class="sidebar-link">
@@ -94,20 +95,7 @@ if (isset($_GET['query']) && !empty($_GET['query'])) {
                             </a>
                         </div>
                     </ul>
-                <?php else: ?>
-                    <li class="sidebar-item">
-                        <a href="login.php" class="sidebar-link">
-                            <i class="lni lni-enter"></i>
-                            <span>Login</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="createuser.php" class="sidebar-link">
-                            <i class="bi bi-person-add"></i>
-                            <span>Cadastro</span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+               
         </aside>
         <div class = 'containerbusca'>
             <div class="search-container">

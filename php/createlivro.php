@@ -78,7 +78,7 @@ if (isset($_SESSION['USR_ID'])) {
 </head>
 <body>
 
-<?php if (isset($_SESSION['USR_EMAIL'])): ?>
+
 <div class="wrapper">
         <aside id="sidebar">     
             <div class="data-bs-target">
@@ -124,7 +124,6 @@ if (isset($_SESSION['USR_ID'])) {
                         </a>
                     </u>
                 </div>
-                <?php endif; ?>
             </div>
         </aside> 
 
@@ -154,7 +153,6 @@ if (isset($_SESSION['USR_ID'])) {
                     </div>
                     <div class="form-floating mb-3">
                         <!-- <label for="LVR_FOTO" >ANEXE UMA IMAGEM DO LIVRO:</label> -->
-                        
                         <input type="file" class="form-control" id="LVR_FOTO" name="LVR_FOTO" accept="image/*" required>
                     </div>
                     <br>

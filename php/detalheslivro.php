@@ -1,5 +1,6 @@
 <?php
 require_once 'db.php';
+require_once 'authenticate.php';
 session_start();
 
 if (isset($_GET['id'])) {
@@ -42,9 +43,6 @@ if (isset($_GET['id'])) {
                 <button class="toggle-btn" type="menu">
                     <img src="../img/logo.svg" alt="logo">
                 </button>
-                <?php if (isset($_SESSION['USR_EMAIL'])): ?>
-                
-
                     <ul class="sidebar-nav">
                         <li class="sidebar-item">
                             <a href="../index.php" class="sidebar-link">
@@ -84,20 +82,6 @@ if (isset($_GET['id'])) {
                         </a>
                     </u>
                 </div>
-            <?php else: ?>
-                <li class="sidebar-item">
-                    <a href="login.php" class="sidebar-link">
-                    <i class="lni lni-enter"></i>
-                        <span>login</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="createuser.php" class="sidebar-link">
-                    <i class="bi bi-person-add"></i>
-                        <span>cadastro</span>
-                    </a>
-                </li>
-            <?php endif; ?>
         </aside>
 
         <div class="main p-3">
