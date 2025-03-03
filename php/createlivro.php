@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once 'db.php';
 require_once 'authenticate.php';
-session_start();
 $pasta ='uploads/';
 
 if (isset($_SESSION['USR_ID'])) {
