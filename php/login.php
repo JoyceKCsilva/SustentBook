@@ -1,16 +1,21 @@
 <?php
-require_once 'db.php';
 session_start();
+require_once 'db.php';
+
+$erro = ""; // Inicializa a variável para evitar erro de variável indefinida
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $USR_EMAIL = $_POST['USR_EMAIL'];
     $USR_SENHA = $_POST['USR_SENHA'];
 
+    // Prepara e executa a consulta SQL
     $stmt = $pdo->prepare("SELECT * FROM sebo_usuarios WHERE USR_EMAIL = ?");
     $stmt->execute([$USR_EMAIL]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Verifica se o usuário existe e se a senha está correta
     if ($user && password_verify($USR_SENHA, $user['USR_SENHA'])) {
+        // Armazena informações do usuário na sessão
         $_SESSION['USR_ID'] = $user['USR_ID'];
         $_SESSION['USR_EMAIL'] = $user['USR_EMAIL'];
         header('Location: ../index.php');
@@ -21,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,25 +52,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="password" class="form-control" id="USR_SENHA" name="USR_SENHA" placeholder="Password" required>
                 <label for="USR_SENHA">Senha</label>
             </div>
-            <div id="mensagemErro" style="color: red;"><?php echo htmlspecialchars($erro); ?></div>
+
+            <!-- Exibe a mensagem de erro, se houver -->
+            <div id="mensagemErro" style="color: red;"><?php echo htmlspecialchars($erro ?? "", ENT_QUOTES, 'UTF-8'); ?></div>
             <br>
+
             <button type="submit" class="btn btn-primary">Entrar</button>
-            
-            
         </form>
         <br>
         <a href="createuser.php">CLIQUE AQUI SE AINDA NÃO POSSUI UMA CONTA</a>
     </div>
 </body>
-<script>
 
+<script>
     document.querySelector('form').addEventListener('submit', function(event) {
         let senha = document.getElementById('USR_SENHA').value;
         let email = document.getElementById('USR_EMAIL').value;
-        if (email === '' || senha === '') {
+
+        if (email.trim() === '' || senha.trim() === '') {
             event.preventDefault();
             document.getElementById('mensagemErro').innerText = 'Por favor, preencha todos os campos.';
         }
     });
 </script>
+
 </html>
