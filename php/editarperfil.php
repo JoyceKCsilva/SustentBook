@@ -4,6 +4,11 @@ require 'db.php';
 require_once 'authenticate.php';
 $pasta = 'fotousuario/';
 
+// Criar a pasta se não existir
+if (!is_dir($pasta)) {
+    mkdir($pasta, 0777, true);
+}
+
 if (isset($_SESSION['USR_ID'])) {
     $USR_ID = $_SESSION['USR_ID'];
 
@@ -48,15 +53,14 @@ if (isset($_SESSION['USR_ID'])) {
                 
                 $extensao = strtolower(pathinfo($arquivo['name'], PATHINFO_EXTENSION));
                 $novoNomeDoArquivo = uniqid() . ".$extensao";
-                $path = $pasta . $novoNomeDoArquivo;
+                $caminhoCompleto = __DIR__ . "/" . $pasta . $novoNomeDoArquivo;
                 
-
-                if (move_uploaded_file($arquivo['tmp_name'], $path)) {
+                if (move_uploaded_file($arquivo['tmp_name'], $caminhoCompleto)) {
                     $stmt = $pdo->prepare("UPDATE sebo_usuarios SET USR_FOTO = ? WHERE USR_ID = ?");
-                    $stmt->execute([$path, $USR_ID]);
+                    $stmt->execute(["fotousuario/" . $novoNomeDoArquivo, $USR_ID]);
 
-                    if ($imagem_antiga && file_exists($imagem_antiga)) {
-                        unlink($imagem_antiga);
+                    if ($imagem_antiga && file_exists(__DIR__ . "/" . $imagem_antiga)) {
+                        unlink(__DIR__ . "/" . $imagem_antiga);
                     }
                 } else {
                     die("Falha ao mover o arquivo.");
@@ -72,8 +76,8 @@ if (isset($_SESSION['USR_ID'])) {
 } else {
     die("Erro: Usuário não autenticado.");
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
