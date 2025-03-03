@@ -1,6 +1,7 @@
 <?php
-require_once 'php/mostrarlivros.php';
 session_start();
+require_once 'php/mostrarlivros.php';
+
 if (isset($_SESSION['USR_ID'])) {
     $USR_ID = $_SESSION['USR_ID'];
 }
