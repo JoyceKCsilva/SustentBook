@@ -1,6 +1,6 @@
 <?php
 require_once 'db.php';
-session_start();
+
 
 if (isset($_SESSION['USR_ID'])) {
     $USR_ID = $_SESSION['USR_ID'];
