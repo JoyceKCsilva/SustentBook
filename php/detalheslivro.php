@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once 'db.php';
 require_once 'authenticate.php';
-session_start();
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
