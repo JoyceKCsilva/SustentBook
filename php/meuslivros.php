@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "mostrarlivros.php";
 require_once "authenticate.php";
 
